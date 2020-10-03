@@ -1,13 +1,13 @@
 version: "3"
 services:
-  auth_api_service:
-    container_name: auth_api_service
+  auth_service:
+    container_name: auth_service
     restart: on-failure
     build:
       context: .
       dockerfile: Dockerfile
     command: >
-      sh -c  "alembic revision --autogenerate && alembic upgrade head && python main.py"
+      sh -c  "alembic upgrade head && python main.py"
     ports:
       - "3005:3005"
       - "50051:50051"

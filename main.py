@@ -1,13 +1,13 @@
-from pathlib import Path
-
+import os
 import grpc
 
 from grpc_hub.router import serve
-from dotenv import load_dotenv
+
+GRPC_PORT = os.environ["GRPC_PORT"]
 
 
 def run():
-    channel = grpc.insecure_channel("localhost:50051")
+    channel = grpc.insecure_channel(f"localhost:{GRPC_PORT}")
 
 
 # Press the green button in the gutter to run the script.
